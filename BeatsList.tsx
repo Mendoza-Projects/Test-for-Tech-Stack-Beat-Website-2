@@ -1,31 +1,43 @@
-// Import the BeatPlayer component
 import BeatPlayer from '@/app/BeatPlayer';
 
 const BeatsList = () => {
   // Sample random beat data
   const beats = [
     {
-      videoId: '1X2c3V4b5T',  // Random video ID
-      name: 'Random Beat 1',
+      videoId: 'randomVideoID1',
+      name: 'Beat 1',
       price: 10,
       bpm: 120,
-      description: 'A random beat to test.',
+      description: 'A random beat 1 for testing.',
     },
     {
-      videoId: '2Y3b4G6d7H',  // Random video ID
-      name: 'Random Beat 2',
+      videoId: 'randomVideoID2',
+      name: 'Beat 2',
       price: 15,
       bpm: 130,
-      description: 'Another random beat for testing.',
+      description: 'A random beat 2 for testing.',
     },
     {
-      videoId: '3Z4c5J6k8P',  // Random video ID
-      name: 'Random Beat 3',
+      videoId: 'randomVideoID3',
+      name: 'Beat 3',
       price: 20,
       bpm: 140,
-      description: 'A cool random beat.',
+      description: 'A random beat 3 for testing.',
     },
-    // Add more beats as needed
+    {
+      videoId: 'randomVideoID4',
+      name: 'Beat 4',
+      price: 25,
+      bpm: 150,
+      description: 'A random beat 4 for testing.',
+    },
+    {
+      videoId: 'randomVideoID5',
+      name: 'Beat 5',
+      price: 30,
+      bpm: 160,
+      description: 'A random beat 5 for testing.',
+    },
   ];
 
   return (
