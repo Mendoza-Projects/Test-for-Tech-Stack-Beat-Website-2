@@ -1,57 +1,33 @@
-export default function ContactPage() {
-    return (
-      <div className="p-8">
-        <h1 className="text-2xl font-bold mb-4">Contact Us</h1>
-        <p className="mb-6">We’d love to hear from you! Please fill out the form below.</p>
-  
-        <form className="space-y-4">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-              Name
-            </label>
-            <input
-              id="name"
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              className="mt-1 p-2 w-full border border-gray-300 rounded-md"
-            />
-          </div>
-  
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              className="mt-1 p-2 w-full border border-gray-300 rounded-md"
-            />
-          </div>
-  
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={4}
-              placeholder="Your Message"
-              className="mt-1 p-2 w-full border border-gray-300 rounded-md"
-            />
-          </div>
-  
-          <button
-            type="submit"
-            className="mt-4 w-full py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-          >
-            Send Message
-          </button>
-        </form>
-      </div>
-    );
-  }
-  
+// src/app/Contact/page.tsx
+
+import React from 'react';
+
+const ContactPage = () => {
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center">
+      <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
+      <p className="text-lg mb-6">Feel free to reach out to us for any inquiries!</p>
+      
+      <form className="w-full max-w-sm">
+        <div className="mb-4">
+          <label htmlFor="name" className="block text-sm font-semibold">Name</label>
+          <input type="text" id="name" className="w-full p-2 border border-gray-300 rounded" placeholder="Your Name" required />
+        </div>
+        
+        <div className="mb-4">
+          <label htmlFor="email" className="block text-sm font-semibold">Email</label>
+          <input type="email" id="email" className="w-full p-2 border border-gray-300 rounded" placeholder="Your Email" required />
+        </div>
+        
+        <div className="mb-4">
+          <label htmlFor="message" className="block text-sm font-semibold">Message</label>
+          <textarea id="message" className="w-full p-2 border border-gray-300 rounded" placeholder="Your Message" required />
+        </div>
+
+        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded">Send Message</button>
+      </form>
+    </div>
+  );
+};
+
+export default ContactPage;
