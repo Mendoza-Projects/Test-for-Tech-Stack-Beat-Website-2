@@ -1,33 +1,70 @@
 // src/app/Contact/page.tsx
 
-import React from 'react';
+'use client';
 
-const ContactPage = () => {
+import React, { useState } from 'react';
+
+const Contact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    // Handle form submission logic (e.g., send an email using backend or third-party service)
+  };
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
-      <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
-      <p className="text-lg mb-6">Feel free to reach out to us for any inquiries!</p>
-      
-      <form className="w-full max-w-sm">
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-sm font-semibold">Name</label>
-          <input type="text" id="name" className="w-full p-2 border border-gray-300 rounded" placeholder="Your Name" required />
+    <div className="contact-form">
+      <h2>Contact Us</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            required
+          />
         </div>
-        
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-semibold">Email</label>
-          <input type="email" id="email" className="w-full p-2 border border-gray-300 rounded" placeholder="Your Email" required />
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            required
+          />
         </div>
-        
-        <div className="mb-4">
-          <label htmlFor="message" className="block text-sm font-semibold">Message</label>
-          <textarea id="message" className="w-full p-2 border border-gray-300 rounded" placeholder="Your Message" required />
+        <div>
+          <label htmlFor="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleInputChange}
+            required
+          ></textarea>
         </div>
-
-        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded">Send Message</button>
+        <button type="submit">Send Message</button>
       </form>
     </div>
   );
 };
 
-export default ContactPage;
+export default Contact;
