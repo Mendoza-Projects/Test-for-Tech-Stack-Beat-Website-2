@@ -51,10 +51,10 @@ const BeatsList = () => {
           {/* Embed BeatPlayer for each beat */}
           <BeatPlayer
             videoId={beat.videoId}
-            name={beat.name}
-            price={beat.price}
-            bpm={beat.bpm}
-            description={beat.description}
+            name={beat}
+            price={$30.00}
+            bpm={129 bpm}
+            description={trap beat}
           />
         </div>
       ))}
