@@ -38,7 +38,7 @@ const BeatsList: React.FC = () => {
               name={beat.name} 
               price={beat.price} 
               description={beat.description} 
-              isLoading={false} 
+              
             />
           </div>
         ))}
