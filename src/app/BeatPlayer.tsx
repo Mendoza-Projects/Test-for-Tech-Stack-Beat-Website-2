@@ -1,29 +1,33 @@
+// src/app/BeatPlayer.tsx
+
+import React from 'react';
+
 interface BeatPlayerProps {
   videoId: string;
-  name?: string;  // Make these optional
-  price?: number;
-  bpm?: number;
-  description?: string;
-  isLoading?: boolean;
+  name: string;
+  price: number;
+  bpm: number;
+  description: string;
 }
 
-const BeatPlayer = ({ videoId, name, price, bpm, description, isLoading }: BeatPlayerProps) => {
+const BeatPlayer: React.FC<BeatPlayerProps> = ({ videoId, name, price, bpm, description }) => {
   return (
     <div className="beat-player">
-      {/* Render the video player with other optional info */}
-      <iframe
-        width="560"
-        height="315"
-        src={`https://www.youtube.com/embed/${videoId}`}
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
-      {name && <h3>{name}</h3>}
-      {description && <p>{description}</p>}
-      {price && <p>Price: ${price}</p>}
-      {bpm && <p>BPM: {bpm}</p>}
+      <h3 className="text-xl font-semibold">{name}</h3>
+      <p>{description}</p>
+      <div className="video-container">
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}`}
+          width="100%"
+          height="315"
+          frameBorder="0"
+          allowFullScreen
+        ></iframe>
+      </div>
+      <div className="details">
+        <p>Price: ${price}</p>
+        <p>BPM: {bpm}</p>
+      </div>
     </div>
   );
 };
